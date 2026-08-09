@@ -1,201 +1,183 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحه فرم</title>
-
+    <title>سامانه خدمات سازمانی</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-
-
 </head>
-
 <body>
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-badge"><i class="bi bi-shield-check"></i></div>
+                <div>
+                    <h3>سامانه خدمات IT</h3>
+                    <p>مدیریت هوشمند درخواست‌ها</p>
+                </div>
+            </div>
 
-    <div class="container-fluid">
-
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <ul>
-                <li id="menu-1" class="active">
-                    <span class="menu-icon"><i class="bi bi-grid-fill"></i></span>
-                    <span>1. پیشخوان</span>
-                </li>
-                <li id="menu-2">
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-step="1" onclick="setActiveStep(1)">
+                    <span class="menu-icon"><i class="bi bi-speedometer2"></i></span>
+                    <span>پیشخوان</span>
+                </button>
+                <button class="nav-item" data-step="2" onclick="setActiveStep(2)">
                     <span class="menu-icon"><i class="bi bi-ticket-perforated"></i></span>
-                    <span>تیکت ها</span>
-                </li>
-                <li id="menu-3">
-                    <span class="menu-icon"><i class="bi bi-box-seam"></i></span>
-                    <span>دارایی ها</span>
-                </li>
-                <li id="menu-4">
-                    <span class="menu-icon"><i class="bi bi-people"></i></span>
-                    <span>کاربران</span>
-                </li>
+                    <span>تکمیل اطلاعات</span>
+                </button>
+                <button class="nav-item" data-step="3" onclick="setActiveStep(3)">
+                    <span class="menu-icon"><i class="bi bi-file-earmark-text"></i></span>
+                    <span>خلاصه درخواست</span>
+                </button>
+            </nav>
 
-            </ul>
-        </div>
+            <div class="sidebar-footer">
+                <button class="new-request-btn" type="button" onclick="setActiveStep(2)">ثبت درخواست جدید</button>
+            </div>
+        </aside>
 
-        <!-- Content area -->
-        <div class="content-area">
-
+        <main class="content-area">
             <header class="topbar">
-                <h2 class="topbar-title">سیستم مدیریت خدمات سازمان</h2>
+                <div>
+                    <h2>سیستم مدیریت خدمات سازمان</h2>
+                    <p>پایش لحظه‌ای و پاسخ سریع به درخواست‌های خدماتی</p>
+                </div>
 
-                <div class="topbar-user">
-                    <span>مدیر سیستم</span>
-                    <span class="user-icon"><i class="bi bi-person-circle"></i></span>
+                <div class="topbar-actions">
+                    <div class="search-pill">
+                        <i class="bi bi-search"></i>
+                        <input type="text" placeholder="جستجو در سیستم">
+                    </div>
+                    <div class="user-chip">
+                        <span>مدیر سیستم</span>
+                        <i class="bi bi-person-circle"></i>
+                    </div>
                 </div>
             </header>
 
-            <div class="tab-content">
-                <div id="step1" class="container-fluid tab-pane  active">
-                    <!-- Main -->
-                    <div class="main-content">
+            <section class="main-content">
+                <div class="hero-card">
+                    <div>
+                        <span class="hero-tag">نسخه مدرن و حرفه‌ای</span>
+                        <h1>مدیریت درخواست‌ها با تجربه‌ای سریع‌تر و روان‌تر</h1>
+                        <p>این نسخه، فرم و داشبورد را از یک ظاهر ساده به یک محیط کاربری شفاف، پاسخگو و حرفه‌ای تبدیل کرده است.</p>
+                    </div>
+                    <button class="btn-primary" type="button" onclick="setActiveStep(2)">شروع فرآیند</button>
+                </div>
 
-                        <div class="page-heading">
-                            <h1>گزارشات امروز</h1>
-                            <a href="../final project - Copy/final_html.html">
-                                <button class="btn btn-success">ثبت درخواست +</button>
-                            </a>
+                <div id="step1" class="step-pane active">
+                    <div class="section-heading">
+                        <div>
+                            <h3>گزارشات امروز</h3>
+                            <p>وضعیت جاری خدمات و درخواست‌ها را در یک نگاه مشاهده کنید.</p>
+                        </div>
+                        <span class="live-badge"><span class="dot"></span>به‌روزرسانی لحظه‌ای</span>
+                    </div>
+
+                    <form class="stats-grid">
+                        <label class="stat-card info">
+                            <input id="rad1" type="radio" name="service" value="network">
+                            <div class="card-top">
+                                <span class="icon"><i class="bi bi-ticket-perforated"></i></span>
+                                <span class="chip">تیکت</span>
+                            </div>
+                            <p class="card-title">تیکت‌های باز</p>
+                            <h3 class="counter" id="t1">0</h3>
+                        </label>
+
+                        <label class="stat-card danger">
+                            <input id="rad2" type="radio" name="service" value="license">
+                            <div class="card-top">
+                                <span class="icon"><i class="bi bi-globe2"></i></span>
+                                <span class="chip">سرویس</span>
+                            </div>
+                            <p class="card-title">سرویس‌های آنلاین</p>
+                            <h3 class="counter" id="t2">0</h3>
+                        </label>
+
+                        <label class="stat-card success">
+                            <input id="rad3" type="radio" name="service" value="hardware">
+                            <div class="card-top">
+                                <span class="icon"><i class="bi bi-cpu"></i></span>
+                                <span class="chip">دارایی</span>
+                            </div>
+                            <p class="card-title">تجهیزات تخصیص یافته</p>
+                            <h3 class="counter" id="t3">0</h3>
+                        </label>
+
+                        <label class="stat-card warning">
+                            <input id="rad4" type="radio" name="service" value="errors">
+                            <div class="card-top">
+                                <span class="icon"><i class="bi bi-exclamation-triangle"></i></span>
+                                <span class="chip">خطا</span>
+                            </div>
+                            <p class="card-title">خطاهای گزارش شده</p>
+                            <h3 class="counter" id="t4">0</h3>
+                        </label>
+                    </form>
+                </div>
+
+                <div id="step2" class="step-pane">
+                    <div class="panel-card">
+                        <div class="section-heading">
+                            <div>
+                                <h3>تکمیل اطلاعات درخواست</h3>
+                                <p>اطلاعات موردنیاز را وارد کنید تا درخواست شما کامل شود.</p>
+                            </div>
                         </div>
 
-                        <!-- Cards -->
-
-                        <form class="nrow">
-
-
-
-                            <label class="content bg-info">
-                                <div class="row align-content-center justify-content-center">
-
-
-                                    <div class="col-md-8">
-                                        <p class="card-header">تیکت های باز</p>
-
-                                        <h3 class="counter" id="t1">
-                                            13
-                                        </h3>
-
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <input class="card" id="rad1" type="radio" name="service" value="network">
-
-                                        <span class="card-icon"><i class="bi bi-ticket-perforated"></i></span>
-                                    </div>
-
-                                </div>
+                        <div class="form-grid">
+                            <label class="field">
+                                <span>آدرس IP درخواستی (اختیاری)</span>
+                                <input id="ipinp" type="text" class="searchbox" placeholder="192.168.1.1">
                             </label>
 
-
-
-                            <label class="content bg-danger">
-
-                                <input class="card" id="rad2" type="radio" name="service" value="license">
-
-                                <span class="card-icon"><i class="bi bi-database"></i></span>
-
-                                <p class="card-header">سرویس های آنلاین</p>
-
-                                <h3 class="counter" id="t2">
-                                    48
-                                </h3>
-
+                            <label class="field">
+                                <span>محدوده شبکه</span>
+                                <input id="ntwk" class="searchbox" placeholder="مدیریت" list="net">
+                                <datalist id="net">
+                                    <option value="مدیریت"></option>
+                                    <option value="گزینه‌های دیگر"></option>
+                                </datalist>
                             </label>
+                        </div>
 
-
-
-                            <label class="content bg-success">
-
-                                <input class="card" id="rad3" type="radio" name="service" value="hardware">
-
-                                <span class="card-icon"><i class="bi bi-cpu"></i></span>
-
-                                <p class="card-header">تجهیزات تخصیص یافته</p>
-
-                                <h3 class="counter" id="t3">
-                                    105
-                                </h3>
-                            </label>
-
-                            <label class="content bg-warning">
-
-                                <input class="card" id="rad4" type="radio" name="service" value="errors">
-
-                                <span class="card-icon"><i class="bi bi-exclamation-triangle"></i></span>
-
-                                <p class="card-header">خطا های گزارش شده</p>
-
-                                <h3 class="counter" id="t4">
-                                    3
-                                </h3>
-
-                            </label>
-
-
-                        </form>
-
-
-
-
-
-                    </div>
-
-
-                </div>
-                <div id="step2" class="container tab-pane  fade">
-
-                    <div class="main-content">
-                        <h1> تکمیل اطلاعات</h1>
-                        <p>آی پی درخواستی(اختیاری)</p>
-                        <input id="ipinp" type="text" class="searchbox" placeholder="192.168.1.1">
-                        <p>محدوده شبکه</p>
-                        <input id="ntwk" class="searchbox" placeholder="مدیریت" list="net">
-
-
-                        <datalist id="net">
-                            <option value="مدیریت">
-                            <option value="گزینه های دیگر">
-
-                        </datalist>
-
-                    </div>
-
-                    <div class="btn-box">
-                        <button class="btn prevbtn  btn-outline-secondary" onclick="pastStep(2)"
-                            type="button">قبلی</button>
-                        <button class="btn btn-outline-primary" onclick="nextStep(2)" type="button">بعدی</button>
+                        <div class="btn-box">
+                            <button class="btn-secondary" type="button" onclick="pastStep(2)">قبلی</button>
+                            <button class="btn-primary" type="button" onclick="nextStep(2)">ادامه</button>
+                        </div>
                     </div>
                 </div>
-                <div id="step3" class="container tab-pane  fade">
-                    <h1>خلاصه درخواست</h1>
 
-                    <p><strong>سرویس درخواستی:</strong> <span id="resultService">-</span></p>
+                <div id="step3" class="step-pane">
+                    <div class="panel-card summary-card">
+                        <div class="section-heading">
+                            <div>
+                                <h3>خلاصه درخواست</h3>
+                                <p>درخواست شما آماده ثبت نهایی است.</p>
+                            </div>
+                        </div>
 
-                    <p><strong>IP درخواستی:</strong> <span id="resultIP">-</span></p>
+                        <div class="summary-list">
+                            <div><span>سرویس درخواستی</span><strong id="resultService">-</strong></div>
+                            <div><span>IP درخواستی</span><strong id="resultIP">-</strong></div>
+                            <div><span>محدوده شبکه</span><strong id="resultNet">-</strong></div>
+                        </div>
 
-                    <p><strong>محدوده شبکه:</strong> <span id="resultNet">-</span></p>
-                    <div class="btn-box">
-                        <button class="btn prevbtn  btn-outline-secondary " onclick="pastStep(3)"
-                            type="button">قبلی</button>
-                        <button class="btn btn-primary disabled">ثبت نهایی</button>
+                        <div class="btn-box">
+                            <button class="btn-secondary" type="button" onclick="pastStep(3)">قبلی</button>
+                            <button class="btn-primary" type="button">ثبت نهایی</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
+
+    <div id="toast" class="toast" aria-live="polite"></div>
+
     <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
 </body>
-
 </html>
