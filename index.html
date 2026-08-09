@@ -1,11 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>داشبورد مدیریت خدمات</title>
+    <meta name="description" content="داشبورد مدیریت خدمات سازمان با طراحی مدرن و فرم درخواست شبکه">
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+
 <body>
-    <p>Welcome to my website!</p>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-icon"><i class="bi bi-shield-lock-fill"></i></span>
+                <div>
+                    <p>سازمان هوشمند</p>
+                    <small>داشبورد مدیریت</small>
+                </div>
+            </div>
+            <nav>
+                <button type="button" class="nav-item active" data-step="1" onclick="changeMenu(1)">
+                    <span class="menu-icon"><i class="bi bi-speedometer2"></i></span>
+                    <span>پیشخوان</span>
+                </button>
+                <button type="button" class="nav-item" data-step="2" onclick="changeMenu(2)">
+                    <span class="menu-icon"><i class="bi bi-card-checklist"></i></span>
+                    <span>فرم درخواست</span>
+                </button>
+                <button type="button" class="nav-item" data-step="3" onclick="changeMenu(3)">
+                    <span class="menu-icon"><i class="bi bi-file-earmark-text"></i></span>
+                    <span>خلاصه</span>
+                </button>
+            </nav>
+            <div class="sidebar-footer">
+                <p>آخرین بروزرسانی</p>
+                <strong>همین حالا</strong>
+            </div>
+        </aside>
+
+        <main class="content-area">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1 class="topbar-title">داشبورد مدیریت خدمات سازمان</h1>
+                    <p class="topbar-subtitle">گزارش‌ها، درخواست‌ها و خلاصه وضعیت در یک دید کلی</p>
+                </div>
+                <div class="topbar-user">
+                    <div class="user-label">مدیر سیستم</div>
+                    <span class="user-icon"><i class="bi bi-person-circle"></i></span>
+                </div>
+            </header>
+
+            <section class="tab-content">
+                <section id="step1" class="tab-pane active">
+                    <div class="main-content">
+                        <div class="page-heading">
+                            <div>
+                                <h2>گزارشات امروز</h2>
+                                <p>نمایش خلاصه وضعیت خدمات و درخواست‌های سازمان</p>
+                            </div>
+                            <button class="btn btn-primary" onclick="changeMenu(2)">
+                                <i class="bi bi-plus-lg"></i> ثبت درخواست جدید
+                            </button>
+                        </div>
+
+                        <div class="stats-grid">
+                            <label class="stat-card" for="rad1">
+                                <div class="stat-icon bg-primary"><i class="bi bi-ticket-perforated"></i></div>
+                                <div>
+                                    <p class="stat-title">تیکت‌های باز</p>
+                                    <h3 id="t1">0</h3>
+                                </div>
+                            </label>
+                            <label class="stat-card" for="rad2">
+                                <div class="stat-icon bg-success"><i class="bi bi-cloud-check"></i></div>
+                                <div>
+                                    <p class="stat-title">سرویس‌های آنلاین</p>
+                                    <h3 id="t2">0</h3>
+                                </div>
+                            </label>
+                            <label class="stat-card" for="rad3">
+                                <div class="stat-icon bg-warning text-dark"><i class="bi bi-hdd-network"></i></div>
+                                <div>
+                                    <p class="stat-title">تجهیزات تخصیص یافته</p>
+                                    <h3 id="t3">0</h3>
+                                </div>
+                            </label>
+                            <label class="stat-card" for="rad4">
+                                <div class="stat-icon bg-danger"><i class="bi bi-exclamation-triangle-fill"></i></div>
+                                <div>
+                                    <p class="stat-title">خطاهای گزارش شده</p>
+                                    <h3 id="t4">0</h3>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="overview-card">
+                            <div>
+                                <h3>سلام!</h3>
+                                <p>برای ادامه می‌توانید فرم درخواست را کامل کنید یا نخستین تیکت جدید را ثبت نمایید.</p>
+                            </div>
+                            <button class="btn btn-outline-secondary" onclick="changeMenu(2)">ادامه فرم</button>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="step2" class="tab-pane fade">
+                    <div class="main-content form-step">
+                        <div class="form-heading">
+                            <div>
+                                <h2>اطلاعات درخواست</h2>
+                                <p>بخش اختیاری آی‌پی و انتخاب محدوده شبکه</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="ipinp">آی‌پی درخواستی (اختیاری)</label>
+                            <input id="ipinp" type="text" class="searchbox" placeholder="192.168.1.1">
+                        </div>
+                        <div class="form-group">
+                            <label for="ntwk">محدوده شبکه</label>
+                            <input id="ntwk" class="searchbox" placeholder="مدیریت" list="net">
+                            <datalist id="net">
+                                <option value="مدیریت">
+                                <option value="شبکه داخلی">
+                                <option value="پشتیبانی">
+                            </datalist>
+                        </div>
+                    </div>
+                    <div class="btn-box">
+                        <button class="btn btn-outline-secondary" onclick="changeMenu(1)" type="button">بازگشت</button>
+                        <button class="btn btn-primary" onclick="nextStep(2)" type="button">مشاهده خلاصه</button>
+                    </div>
+                </section>
+
+                <section id="step3" class="tab-pane fade">
+                    <div class="main-content summary-step">
+                        <div class="summary-card">
+                            <h2>خلاصه درخواست شما</h2>
+                            <div class="summary-row">
+                                <span>سرویس انتخاب شده</span>
+                                <strong id="resultService">-</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>IP درخواستی</span>
+                                <strong id="resultIP">-</strong>
+                            </div>
+                            <div class="summary-row">
+                                <span>محدوده شبکه</span>
+                                <strong id="resultNet">-</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="btn-box">
+                        <button class="btn btn-outline-secondary" onclick="changeMenu(2)" type="button">ویرایش</button>
+                        <button class="btn btn-success" id="submitButton" type="button">ثبت نهایی</button>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
