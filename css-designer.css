@@ -1,0 +1,250 @@
+:root {
+    color-scheme: light;
+    font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
+    background: #f8fafc;
+    color: #1f2937;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at top left, rgba(96, 165, 250, 0.15), transparent 30%),
+        radial-gradient(circle at bottom right, rgba(52, 211, 153, 0.12), transparent 28%),
+        #f8fafc;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.designer-shell {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.designer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 28px;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.06);
+    margin-bottom: 24px;
+}
+
+.designer-header h1 {
+    font-size: 28px;
+    margin-bottom: 6px;
+}
+
+.designer-header p {
+    color: #475569;
+    margin: 0;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 18px;
+    background: #2563eb;
+    color: #ffffff;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.button:hover {
+    transform: translateY(-1px);
+}
+
+.button-secondary {
+    background: #e2e8f0;
+    color: #1e293b;
+}
+
+.button-outline {
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    color: #1f2937;
+}
+
+.designer-grid {
+    display: grid;
+    grid-template-columns: 320px minmax(0, 1fr);
+    gap: 22px;
+}
+
+.tool-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.tool-section {
+    padding: 20px;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.05);
+}
+
+.tool-section h2 {
+    margin: 0 0 18px;
+    font-size: 18px;
+}
+
+.tool-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.tool-buttons button {
+    padding: 14px 12px;
+    border-radius: 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #0f172a;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.tool-buttons button:hover {
+    background: #eff6ff;
+    border-color: #93c5fd;
+}
+
+.property-row {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.property-row label {
+    font-size: 14px;
+    color: #334155;
+}
+
+.property-row input,
+.property-row select,
+.property-row textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    background: #f8fafc;
+}
+
+.property-row input[type="color"] {
+    padding: 4px;
+    height: 44px;
+}
+
+.property-row.buttons-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+
+.property-row.buttons-row .button {
+    flex: 1;
+    justify-content: center;
+}
+
+#cssCode {
+    min-height: 240px;
+    width: 100%;
+    resize: vertical;
+    font-family: Consolas, "Courier New", monospace;
+    white-space: pre-wrap;
+    line-height: 1.6;
+}
+
+.canvas-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.canvas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border-radius: 24px;
+    background: #ffffff;
+    box-shadow: 0 14px 40px rgba(15, 23, 42, 0.05);
+}
+
+.canvas {
+    min-height: 640px;
+    border: 2px dashed rgba(148, 163, 184, 0.5);
+    border-radius: 24px;
+    background: linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.canvas-tip {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+}
+
+.shape-item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.shape-item:hover {
+    transform: translateY(-1px);
+}
+
+.shape-item.selected {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.35);
+}
+
+.shape-item.line {
+    width: 180px;
+    height: 4px;
+    padding: 0;
+}
+
+.shape-icon {
+    font-size: 24px;
+    pointer-events: none;
+}
+
+@media (max-width: 1100px) {
+    .designer-grid {
+        grid-template-columns: 1fr;
+    }
+}

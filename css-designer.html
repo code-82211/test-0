@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Designer</title>
+    <link rel="stylesheet" href="css-designer.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="designer-shell">
+        <header class="designer-header">
+            <div>
+                <h1>ابزار طراحی CSS</h1>
+                <p>شکل بساز، رنگ بده و کد CSS معادل را بگیر.</p>
+            </div>
+            <div class="header-actions">
+                <a class="button button-secondary" href="index.html">بازگشت به صفحه</a>
+                <button class="button button-primary" type="button" onclick="copyCss()">
+                    <i class="bi bi-clipboard"></i>
+                    کپی CSS
+                </button>
+            </div>
+        </header>
+
+        <main class="designer-grid">
+            <aside class="tool-panel">
+                <section class="tool-section">
+                    <h2>ابزارها</h2>
+                    <div class="tool-buttons">
+                        <button type="button" onclick="addShape('rectangle')">
+                            <i class="bi bi-square"></i>
+                            مستطیل
+                        </button>
+                        <button type="button" onclick="addShape('circle')">
+                            <i class="bi bi-circle"></i>
+                            دایره
+                        </button>
+                        <button type="button" onclick="addShape('line')">
+                            <i class="bi bi-slash-lg"></i>
+                            خط
+                        </button>
+                        <button type="button" onclick="addShape('icon')">
+                            <i class="bi bi-star-fill"></i>
+                            آیکون
+                        </button>
+                        <button type="button" onclick="addShape('text')">
+                            <i class="bi bi-type"></i>
+                            متن
+                        </button>
+                    </div>
+                </section>
+
+                <section class="tool-section">
+                    <h2>انتخاب شده</h2>
+                    <div class="property-row">
+                        <span id="selectedLabel">عنصری انتخاب نشده</span>
+                    </div>
+                    <div class="property-row">
+                        <label>عرض</label>
+                        <input id="styleWidth" type="number" min="20" value="120" oninput="setSelectedStyle('width', this.value + 'px')">
+                    </div>
+                    <div class="property-row">
+                        <label>ارتفاع</label>
+                        <input id="styleHeight" type="number" min="20" value="120" oninput="setSelectedStyle('height', this.value + 'px')">
+                    </div>
+                    <div class="property-row">
+                        <label>رنگ پس‌زمینه</label>
+                        <input id="styleBg" type="color" value="#60a5fa" onchange="setSelectedStyle('backgroundColor', this.value)">
+                    </div>
+                    <div class="property-row">
+                        <label>رنگ حاشیه</label>
+                        <input id="styleBorder" type="color" value="#0f172a" onchange="setSelectedStyle('borderColor', this.value)">
+                    </div>
+                    <div class="property-row">
+                        <label>شعاع گوشه</label>
+                        <input id="styleRadius" type="range" min="0" max="80" value="16" oninput="setSelectedStyle('borderRadius', this.value + 'px')">
+                    </div>
+                    <div class="property-row">
+                        <label>متن</label>
+                        <input id="styleText" type="text" placeholder="متن شکل" oninput="setSelectedContent(this.value)">
+                    </div>
+                    <div class="property-row">
+                        <label>آیکون</label>
+                        <select id="styleIcon" onchange="setSelectedIcon(this.value)">
+                            <option value="">بدون آیکون</option>
+                            <option value="bi-star-fill">ستاره</option>
+                            <option value="bi-heart-fill">قلب</option>
+                            <option value="bi-lightning-fill">صاعقه</option>
+                            <option value="bi-gear-fill">چرخ‌دنده</option>
+                        </select>
+                    </div>
+                    <div class="property-row buttons-row">
+                        <button class="button button-outline" type="button" onclick="deleteSelected()">حذف</button>
+                        <button class="button button-outline" type="button" onclick="duplicateSelected()">کپی</button>
+                    </div>
+                </section>
+
+                <section class="tool-section">
+                    <h2>کد CSS</h2>
+                    <textarea id="cssCode" readonly></textarea>
+                </section>
+            </aside>
+
+            <section class="canvas-panel">
+                <div class="canvas-header">
+                    <div>
+                        <h2>محیط طراحی</h2>
+                        <p>روی شکل‌ها کلیک کنید تا آنها را تغییر دهید.</p>
+                    </div>
+                    <button class="button button-secondary" type="button" onclick="clearCanvas()">
+                        <i class="bi bi-trash"></i>
+                        پاک کردن همه
+                    </button>
+                </div>
+                <div id="canvas" class="canvas" tabindex="0" onclick="clearSelection(event)"></div>
+                <p class="canvas-tip">برای وارسی دقیق‌تر شکل روی آن کلیک کنید.</p>
+            </section>
+        </main>
+    </div>
+    <script src="css-designer.js"></script>
+</body>
+
+</html>
