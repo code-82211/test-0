@@ -285,6 +285,20 @@ body {
     font-weight: 600;
 }
 
+.btn-classic {
+    background: linear-gradient(135deg, #9b6a3a 0%, #7a4f2b 100%);
+    color: #fffdf8;
+    border: 1px solid #6f4629;
+}
+
+.classic-panel {
+    background: #fffdf8;
+    border: 1px solid #d9c6a4;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 6px 14px rgba(79, 56, 23, 0.1);
+}
+
 .prevbtn {
     background-color: #6f6b63;
     color: #f9f4eb;
